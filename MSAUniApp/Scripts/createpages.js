@@ -25,7 +25,7 @@ function setupStudentSubmit() {
 
         var newCourse = {
             title: document.getElementById("Titleinput").value,
-            credits: document.getElementById("Creditinput").value
+            credits: document.getElementById("Creditinput").value.toString(),
         }
         
         // Take me back home when done!
