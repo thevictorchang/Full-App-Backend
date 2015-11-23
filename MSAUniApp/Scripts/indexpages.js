@@ -31,6 +31,7 @@ function loadCoursesTable() {
     }
 }
 
+/*
 function loadStudentsTable() {
 
     var studentsTable = document.getElementById("tblstudentcontent");
@@ -130,7 +131,9 @@ function loadStudentsTable() {
             }
         });
     }
+    
 
 };
+*/
 
 
