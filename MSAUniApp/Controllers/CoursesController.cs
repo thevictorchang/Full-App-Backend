@@ -80,22 +80,7 @@ namespace MSAUniApp.Controllers
             }
 
             db.Courses.Add(course);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (CourseExists(course.CourseID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = course.CourseID }, course);
         }

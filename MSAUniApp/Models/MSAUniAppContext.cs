@@ -49,6 +49,7 @@ namespace MSAUniApp.Models
                 students.ForEach(s => context.Students.AddOrUpdate(p => p.LastName, s));
                 context.SaveChanges();
 
+                /*
                 var courses = new List<Course>
                 {
                     new Course {CourseID = 1050, Title = "Chemistry",      Credits = 3, },
@@ -61,7 +62,9 @@ namespace MSAUniApp.Models
                 };
                 courses.ForEach(s => context.Courses.AddOrUpdate(p => p.Title, s));
                 context.SaveChanges();
+                */
 
+                /*
                 var enrollments = new List<Enrollment>
                 {
                     new Enrollment {
@@ -132,8 +135,11 @@ namespace MSAUniApp.Models
                     }
                 }
                 context.SaveChanges();
+                */
             }
+            
         }
+        
 
         public MSAUniAppContext() : base("name=MSAUniAppContext")
         {
