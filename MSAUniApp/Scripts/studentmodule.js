@@ -7,7 +7,7 @@
                 type: "GET",
                 dataType: "json",
                 // API url here
-                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses",
+                url: "https://contosouniversitythevictorchang.azurewebsites.net/api/Courses",
                 success: function (data) {
                     console.log(data);
                     callback(data);
@@ -20,7 +20,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + id,
+                url: "https://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + id,
                 success: function (data) {
                     console.log(data);
                     callback(data);
@@ -32,7 +32,7 @@
         updateCourse: function (courseid, course, callback) {
 
             $.ajax({
-                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + courseid,
+                url: "https://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + courseid,
                 type: "PUT",
                 data: course,
                 success: function (data, textStatus, jqXHR) {
@@ -43,7 +43,7 @@
 
         addCourse: function (course, callback) {
             $.ajax({
-                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/",
+                url: "https://contosouniversitythevictorchang.azurewebsites.net/api/Courses/",
                 type: "POST",
                 data: course,
                 success: function (data, textStatus, jqXHR)
@@ -59,7 +59,7 @@
             $.ajax({ 
                 type: "DELETE",
                 dataType: "json",
-                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + courseid,
+                url: "https://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + courseid,
                 success: function(data){        
                     callback();
                 }
