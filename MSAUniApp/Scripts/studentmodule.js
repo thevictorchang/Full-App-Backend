@@ -7,7 +7,7 @@
                 type: "GET",
                 dataType: "json",
                 // API url here
-                url: "http://msauniapp.azurewebsites.net/api/Courses",
+                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses",
                 success: function (data) {
                     console.log(data);
                     callback(data);
@@ -17,7 +17,7 @@
 
         addCourse: function (course, callback) {
             $.ajax({
-                url: "http://msauniapp.azurewebsites.net/api/Courses/",
+                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/",
                 type: "POST",
                 data: course,
                 success: function (data, textStatus, jqXHR)
@@ -34,7 +34,7 @@
                 type: "GET",
                 dataType: "json",
                 // API url here
-                url: "http://msauniapp.azurewebsites.net/api/Students",
+                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Students",
                 success: function(data){        
                     console.log(data);
                     callback(data);

@@ -2,8 +2,8 @@
 
     var id = getUrlParameters("id", "", true);
 
-    StudentModule.getStudentById(id, function (student) {
-        loadForm(student);
+    StudentModule.getCourseById(id, function (course) {
+        loadForm(course);
     });
 
     //Setup submit button
