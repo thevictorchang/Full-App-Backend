@@ -2,12 +2,12 @@
 
     var id = getUrlParameters("id", "", true);
 
-    StudentModule.getStudentById(id, function (student) {
-        loadForm(student);
+    StudentModule.getCourseById(id, function (course) {
+        loadForm(course);
     });
 
     //Setup submit button
-    setupStudentSubmit(id);
+    setupCourseSubmit(id);
     //Setup cancel buttons
     setupReturn();
 
@@ -39,14 +39,21 @@ function getUrlParameters(parameter, staticURL, decode) {
 };
 
 function loadForm(obj) {
+    console.log("obj is" + obj)
 
     // Prefill form with details
     for (var key in obj) {
-        if (key.toLowerCase() !== "id") {
+        console.log("key is " + key)
+        if (key.toLowerCase() == "courseid") {
+            var forminput = document.getElementById("Courseidinput");
+            forminput.value = obj[key]
+            document.getElementById("Courseidinput").disabled = true;
+          
+        } else
             var forminput = document.getElementById(key + 'input');
             forminput.value = obj[key];
         }
-    }
+    
 
     //show form after loaded
     document.forms.edit.classList.remove("hidden");
@@ -59,13 +66,12 @@ function setupCourseSubmit(id) {
     form.onsubmit = function (e) {
         e.preventDefault();
         var newCourse = {
-            ID: id,
-            title: document.getElementById("LastNameinput").value,
-            firstmidname: document.getElementById("FirstMidNameinput").value,
-            enrollmentdate: document.getElementById("EnrollmentDateinput").value
+            CourseID: id,
+            title: document.getElementById("Titleinput").value,
+            credits: document.getElementById("Creditsinput").value,
         }
 
-        StudentModule.updateStudent(id, newStudent, function () {
+        StudentModule.updateCourse(id, newCourse, function () {
             window.location.href = "index.html";
         });
     }

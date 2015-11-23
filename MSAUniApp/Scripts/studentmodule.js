@@ -7,7 +7,7 @@
                 type: "GET",
                 dataType: "json",
                 // API url here
-                url: "http://msauniapp.azurewebsites.net/api/Courses",
+                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses",
                 success: function (data) {
                     console.log(data);
                     callback(data);
@@ -29,9 +29,21 @@
 
         },
 
+        updateCourse: function (courseid, course, callback) {
+
+            $.ajax({
+                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + courseid,
+                type: "PUT",
+                data: course,
+                success: function (data, textStatus, jqXHR) {
+                    callback();
+                }
+            });
+        },
+
         addCourse: function (course, callback) {
             $.ajax({
-                url: "http://msauniapp.azurewebsites.net/api/Courses/",
+                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/",
                 type: "POST",
                 data: course,
                 success: function (data, textStatus, jqXHR)
