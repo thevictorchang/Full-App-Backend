@@ -67,7 +67,7 @@ function loadStudentsTable() {
             editbtn.className = "btn btn-default";
             editbtn.innerHTML = "Edit";
                                     
-            // You can set your own attributes to elements. This is pretty handy
+            // You can set your own attributes to elesments. This is pretty handy
             // for idenitfying them without using the id tag, or keeping context
             // between different pages (see the 'detail' page event handler down)
             editbtn.setAttribute("data-id", students[i].ID);
