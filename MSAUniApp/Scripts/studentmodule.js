@@ -1,6 +1,34 @@
 ﻿var StudentModule = (function () {
 
     return {
+
+        getCourses: function (callback) {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                // API url here
+                url: "http://msauniapp.azurewebsites.net/api/Courses",
+                success: function (data) {
+                    console.log(data);
+                    callback(data);
+                }
+            });
+        },
+
+        addCourse: function (student, callback) {
+
+            $.ajax({
+                url: "http://msauniapp.azurewebsites.net/api/Courses/",
+                type: "POST",
+                data: course,
+                success: function (data, textStatus, jqXHR) {
+                    callback();
+                }
+            });
+
+        },
+
+
         getStudents: function (callback) {
              $.ajax({ 
                 type: "GET",

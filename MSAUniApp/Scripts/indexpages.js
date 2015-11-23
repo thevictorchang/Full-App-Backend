@@ -1,7 +1,35 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
 
-        loadStudentsTable();
+        loadCoursesTable();
 });
+
+function loadCoursesTable() {
+    var coursesTable = document.getElementById("tblcoursecontent");
+    StudentModule.getCourses(function (coursesList) {
+        setupCoursesTable(coursesList);
+    });
+    function setupCoursesTable(courses) {
+        for (i = 0; i < courses.length; i++) {
+            //create row
+            var row = document.createElement('tr');
+            row.setAttribute("data_id", courses[i].ID);
+
+            // Create columns
+            var titlecol = document.createElement('td');
+            titlecol.innerHTML = courses[i].Title;
+            row.appendChild(titlecol);
+
+            var creditscol = document.createElement('td');
+            creditscol.innerHTML = courses[i].Credits;
+            row.appendChild(creditscol);
+
+            coursesTable.appendChild(row);
+        }
+
+        document.getElementById("tblcourse").classList.remove("hidden");
+        document.getElementById("loadingmsg").style.display = "none";
+    }
+}
 
 function loadStudentsTable() {
 
