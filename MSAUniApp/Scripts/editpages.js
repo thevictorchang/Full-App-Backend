@@ -52,15 +52,15 @@ function loadForm(obj) {
     document.forms.edit.classList.remove("hidden");
 };
 
-function setupStudentSubmit(id) {
+function setupCourseSubmit(id) {
 
     //Creating student from form and update db
     var form = document.forms.edit;
     form.onsubmit = function (e) {
         e.preventDefault();
-        var newStudent = {
-            id: id,
-            lastname: document.getElementById("LastNameinput").value,
+        var newCourse = {
+            ID: id,
+            title: document.getElementById("LastNameinput").value,
             firstmidname: document.getElementById("FirstMidNameinput").value,
             enrollmentdate: document.getElementById("EnrollmentDateinput").value
         }
