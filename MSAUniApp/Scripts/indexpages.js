@@ -4,10 +4,6 @@
 
 });
 
-FB.getLoginStatus(function (response) {
-    statusChangeCallback(response);
-});
-
 function loadCoursesTable() {
     var coursesTable = document.getElementById("tblcoursecontent");
 
