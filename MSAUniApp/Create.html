@@ -23,8 +23,7 @@
                         <li class="active"><a href="#">Courses</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -33,7 +32,7 @@
     <div class="container">
         <a href="index.html">Back to home</a>
         <h2>Create course</h2>
-        <form role="form" name="create">
+        <form role="form" name="create" id="createform">
             
             <div class="form-group">
                 <label for="courseidinput">Course ID:</label>
@@ -47,6 +46,11 @@
             <div class="form-group">
                 <label for="creditinput">Credits:</label>
                 <input type="text" class="form-control" id="creditinput" required/>
+            </div>
+            <div class="form-group">
+                <label for="assessmentitemsinput">Assessment items (enter each on a new line): </label>
+                <br />
+                <textarea id="assessmentitemsinput" form="create" rows="6" ></textarea>
             </div>
 
             <div class="btn-toolbar">

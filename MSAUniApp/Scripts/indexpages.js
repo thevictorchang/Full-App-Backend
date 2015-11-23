@@ -13,6 +13,7 @@ function loadCoursesTable() {
 
     function setupCoursesTable(courses) {
         for (i = 0; i < courses.length; i++) {
+            console.log("created row" + i + "courseid" + courses[i].CourseID);
             //create row
             var row = document.createElement('tr');
             row.setAttribute("data_id", courses[i].CoursesID);

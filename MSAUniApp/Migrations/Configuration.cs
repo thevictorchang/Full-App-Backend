@@ -9,7 +9,7 @@ namespace MSAUniApp.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MSAUniApp.Models.MSAUniAppContext context)

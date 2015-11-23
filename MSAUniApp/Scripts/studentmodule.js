@@ -15,12 +15,12 @@
             });
         },
 
-        getCourseById: function (id, callback) {
+        getCourseById: function (courseid, callback) {
 
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "https://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + id,
+                url: "https://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + courseid,
                 success: function (data) {
                     console.log(data);
                     callback(data);

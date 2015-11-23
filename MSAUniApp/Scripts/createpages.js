@@ -22,12 +22,21 @@ function setupCourseSubmit() {
             enrollmentdate: document.getElementById("EnrollmentDateinput").value
         }
         */
+        var stringArray = document.getElementById('assessmentitemsinput').value.split('\n');
+        console.log("assessmentitems textarea value is: " + stringArray)
+
 
         var newCourse = {
             title: document.getElementById("titleinput").value,
             credits: document.getElementById("creditinput").value,
-            courseid: document.getElementById("courseidinput").value
+            courseid: document.getElementById("courseidinput").value,
+            assessmentitems: stringArray
+
         }
+        console.log("newcourse is" + newCourse);
+            
+        
+
         
         // Take me back home when done!
         StudentModule.addCourse(newCourse, function () {
