@@ -1,9 +1,9 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-    setupStudentSubmit();
+    setupCourseSubmit();
     setupReturn();
 });
 
-function setupStudentSubmit() {
+function setupCourseSubmit() {
 
     //Creating student from form parameters
 
@@ -24,8 +24,8 @@ function setupStudentSubmit() {
         */
 
         var newCourse = {
-            title: document.getElementById("Titleinput").value,
-            credits: document.getElementById("Creditinput").value.toString(),
+            title: document.getElementById("titleinput").value,
+            credits: parseInt(document.getElementById("creditinput").value),
         }
         
         // Take me back home when done!

@@ -158,6 +158,7 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CourseitemsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
@@ -165,6 +166,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Courseitem.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\MSAUniAppContext.cs" />
     <Compile Include="Models\Student.cs" />

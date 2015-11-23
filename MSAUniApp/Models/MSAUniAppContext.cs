@@ -149,5 +149,7 @@ namespace MSAUniApp.Models
         public System.Data.Entity.DbSet<MSAUniApp.Models.Course> Courses { get; set; }
 
         public System.Data.Entity.DbSet<MSAUniApp.Models.Enrollment> Enrollments { get; set; }
+
+        public System.Data.Entity.DbSet<MSAUniApp.Models.Courseitem> Courseitems { get; set; }
     }
 }

@@ -15,6 +15,8 @@ namespace MSAUniApp.Models
         public int Credits { get; set; }
 
         [JsonIgnore]
+        public virtual ICollection<Courseitem> CourseItems { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }

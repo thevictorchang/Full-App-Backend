@@ -15,13 +15,13 @@
             });
         },
 
-        addCourse: function (student, callback) {
-
+        addCourse: function (course, callback) {
             $.ajax({
                 url: "http://msauniapp.azurewebsites.net/api/Courses/",
                 type: "POST",
                 data: course,
-                success: function (data, textStatus, jqXHR) {
+                success: function (data, textStatus, jqXHR)
+                {
                     callback();
                 }
             });
