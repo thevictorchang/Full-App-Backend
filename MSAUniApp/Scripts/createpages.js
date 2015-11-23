@@ -22,15 +22,13 @@ function setupCourseSubmit() {
             enrollmentdate: document.getElementById("EnrollmentDateinput").value
         }
         */
-        var stringArray = document.getElementById('assessmentitemsinput').value.split('\n');
-        console.log("assessmentitems textarea value is: " + stringArray)
-
 
         var newCourse = {
+            assessmentitems: document.getElementById('assessmentiteminput').value,
             title: document.getElementById("titleinput").value,
             credits: document.getElementById("creditinput").value,
             courseid: document.getElementById("courseidinput").value,
-            assessmentitems: stringArray
+            
 
         }
         console.log("newcourse is" + newCourse);
