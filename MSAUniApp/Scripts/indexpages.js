@@ -1,16 +1,43 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
 
-        loadStudentsTable();
+        loadedCoursesTable();
 });
 
+function loadedCoursesTable() {
+    var coursesTable = document.getElementById("tblcoursecontent");
+    StudentModule.getCourses(function (coursesList) {
+        setupCoursesTable(coursesList);
+    });
+    
+    function setupCoursesTable(courses) {
+        
+        //loop through list of courses
+        for (i = 0; i < courses.length; i++) {
+            //create row
+            var row = document.createElement('tr');
+            row.setAttribute("data-id", courses[i].CourseID)
+            //create columns
+            var titlecol = document.createElement('td');
+            titlecol.innerHTML = courses[i].Title;
+            row.appendChild(titlecol);
+
+            var creditscol = document.createElement('td');
+            creditscol.innerHTML = courses[i].Credits;
+            row.appendChild(creditscol);
+
+            
+            coursesTable.appendChild(row);
+
+            document.getElementById("tblcourse").classList.remove("hidden");
+            document.getElementById("loadingmsg").style.display = "none";
+        }
+    }
+}
 function loadStudentsTable() {
-
     var studentsTable = document.getElementById("tblstudentcontent");
-
     StudentModule.getStudents(function (studentsList) {
         setupStudentsTable(studentsList);
     });
-
     function setupStudentsTable(students) {
 
         // Loop through list of students
@@ -42,7 +69,7 @@ function loadStudentsTable() {
             // You can set your own attributes to elements. This is pretty handy
             // for idenitfying them without using the id tag, or keeping context
             // between different pages (see the 'detail' page event handler down)
-            editbtn.setAttribute("data-id", students[i].ID);
+            editbtn.setAttribute("data-id", courses[i].ID);
             editbtn.setAttribute("data-btntype", "edit");
 
             editcol.appendChild(editbtn);
@@ -52,7 +79,7 @@ function loadStudentsTable() {
             var deletebtn = document.createElement('button');
             deletebtn.className = "btn btn-default";
             deletebtn.innerHTML = "Delete";
-            deletebtn.setAttribute("data-id", students[i].ID);
+            deletebtn.setAttribute("data-id", courses[i].ID);
             deletebtn.setAttribute("data-btntype", "delete");
 
             deletecol.appendChild(deletebtn);
@@ -64,7 +91,7 @@ function loadStudentsTable() {
 
         // Show table after it's all loaded
         // The "hidden" class is part of bootstrap
-        document.getElementById("tblstudent").classList.remove("hidden");
+        document.getElementById("tblcourse").classList.remove("hidden");
         document.getElementById("loadingmsg").style.display = "none";
 
         // This basically navigates you to more details, edit or delete on the front page respective to the student you clicked

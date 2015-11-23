@@ -13,6 +13,7 @@ function setupStudentSubmit() {
         // ... and prevent the default action from occuring
         e.preventDefault();
         
+        /*
         //Creating student from form parameters
         var newStudent = {
             // Access the data in the fields with .value 
@@ -20,9 +21,15 @@ function setupStudentSubmit() {
             firstmidname: document.getElementById("FirstNameinput").value,
             enrollmentdate: document.getElementById("EnrollmentDateinput").value
         }
+        */
+
+        var newCourse = {
+            title: document.getElementById("Titleinput").value,
+            credits: document.getElementById("Creditinput").value
+        }
         
         // Take me back home when done!
-        StudentModule.addStudent(newStudent, function () {
+        StudentModule.addCourse(newCourse, function () {
             window.location.href = "index.html";
         });
     }
