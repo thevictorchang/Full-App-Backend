@@ -147,10 +147,12 @@
     <Content Include="Scripts\createpages.js" />
     <Content Include="Scripts\detailpages.js" />
     <Content Include="Scripts\editpages.js" />
+    <Content Include="Scripts\fakeLoader.js" />
     <Content Include="Scripts\indexpages.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\studentmodule.js" />
+    <Content Include="Styles\fakeLoader.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
