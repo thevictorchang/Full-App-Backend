@@ -54,6 +54,18 @@
 
         },
 
+        deleteCourse: function (courseid, callback) {
+            
+            $.ajax({ 
+                type: "DELETE",
+                dataType: "json",
+                url: "http://contosouniversitythevictorchang.azurewebsites.net/api/Courses/" + courseid,
+                success: function(data){        
+                    callback();
+                }
+            });
+        },
+
 
         getStudents: function (callback) {
              $.ajax({ 

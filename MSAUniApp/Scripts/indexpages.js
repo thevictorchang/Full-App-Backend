@@ -1,6 +1,11 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
 
     loadCoursesTable();
+
+});
+
+FB.getLoginStatus(function (response) {
+    statusChangeCallback(response);
 });
 
 function loadCoursesTable() {
@@ -77,7 +82,7 @@ function loadCoursesTable() {
                 window.location.href = 'edit.html' + '?id=' + target.getAttribute("data-id");
                 return;
 
-                // Delete
+            // Delete
             } else if (target.getAttribute("data-btntype") === "delete") {
                 StudentModule.deleteCourse(target.getAttribute("data-id"), function () {
                     window.location.reload(true);
