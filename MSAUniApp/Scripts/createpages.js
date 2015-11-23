@@ -26,7 +26,7 @@ function setupCourseSubmit() {
         var newCourse = {
             title: document.getElementById("titleinput").value,
             credits: document.getElementById("creditinput").value,
-            //courseid: document.getElementById("courseidinput").value
+            courseid: document.getElementById("courseidinput").value
         }
         
         // Take me back home when done!
