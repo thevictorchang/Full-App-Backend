@@ -1,26 +1,20 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
 
-    loadCoursesTable();
+        loadCoursesTable();
 });
 
 function loadCoursesTable() {
     var coursesTable = document.getElementById("tblcoursecontent");
-
     StudentModule.getCourses(function (coursesList) {
         setupCoursesTable(coursesList);
     });
-
     function setupCoursesTable(courses) {
         for (i = 0; i < courses.length; i++) {
             //create row
             var row = document.createElement('tr');
-            row.setAttribute("data_id", courses[i].CoursesID);
+            row.setAttribute("data_id", courses[i].ID);
 
             // Create columns
-            var courseidcol = document.createElement('td');
-            courseidcol.innerHTML = courses[i].CourseID;
-            row.appendChild(courseidcol);
-
             var titlecol = document.createElement('td');
             titlecol.innerHTML = courses[i].Title;
             row.appendChild(titlecol);
@@ -29,16 +23,17 @@ function loadCoursesTable() {
             creditscol.innerHTML = courses[i].Credits;
             row.appendChild(creditscol);
 
-
+            
             // Create edit and delete buttons
             var editcol = document.createElement('td');
             var editbtn = document.createElement('button');
             editbtn.className = "btn btn-default";
             editbtn.innerHTML = "Edit";
+
             // You can set your own attributes to elesments. This is pretty handy
             // for idenitfying them without using the id tag, or keeping context
             // between different pages (see the 'detail' page event handler down)
-            editbtn.setAttribute("data-id", courses[i].CourseID);
+            editbtn.setAttribute("data-id", courses[i].ID);
             editbtn.setAttribute("data-btntype", "edit");
 
             editcol.appendChild(editbtn);
@@ -48,55 +43,57 @@ function loadCoursesTable() {
             var deletebtn = document.createElement('button');
             deletebtn.className = "btn btn-default";
             deletebtn.innerHTML = "Delete";
-            deletebtn.setAttribute("data-id", courses[i].CourseID);
+            deletebtn.setAttribute("data-id", courses[i].ID);
             deletebtn.setAttribute("data-btntype", "delete");
-            deletecol.appendChild(deletebtn);
 
+            deletecol.appendChild(deletebtn);
             row.appendChild(deletecol);
 
             coursesTable.appendChild(row);
         }
-    }
+        /*
 
+        // This basically navigates you to more details, edit or delete on the front page respective to the student you clicked
+        // For more info, search "Event Delegation" online and have a read
+        coursesTable.addEventListener('click', function (e) {
+            var target = e.target;
 
+            // Bubble up to tbody - need to bubble the event up because the click occurs in 
+            // the td cells but the data-id attribute is in the row (for going to more detail page)
+            while (target.nodeName.toLowerCase() !== "tbody") {
 
-    // This basically navigates you to more details, edit or delete on the front page respective to the student you clicked
-    // For more info, search "Event Delegation" online and have a read
-    coursesTable.addEventListener('click', function (e) {
-        var target = e.target;
+                // For all these cases we use the data-id stored in either the cell or the row to keep context
+                // between seperate pages
 
-        // Bubble up to tbody - need to bubble the event up because the click occurs in 
-        // the td cells but the data-id attribute is in the row (for going to more detail page)
-        while (target.nodeName.toLowerCase() !== "tbody") {
+                // Edit
+                if (target.getAttribute("data-btntype") === "edit") {
+                    window.location.href = 'edit.html' + '?id=' + target.getAttribute("data-id");
+                    return;
 
-            // For all these cases we use the data-id stored in either the cell or the row to keep context
-            // between seperate pages
+                    // Delete
+                } else if (target.getAttribute("data-btntype") === "delete") {
+                    StudentModule.deleteCourse(target.getAttribute("data-id"), function () {
+                        window.location.reload(true);
+                    });
+                    return;
 
-            // Edit
-            if (target.getAttribute("data-btntype") === "edit") {
-                window.location.href = 'edit.html' + '?id=' + target.getAttribute("data-id");
-                return;
+                    // Detail - this is true if clicked anywhere within the row
+                } else if (target.nodeName.toLowerCase() === "tr") {
+                    window.location.href = 'detail.html' + '?id=' + target.getAttribute("data-id");
+                    return;
+                }
 
-                // Delete
-            } else if (target.getAttribute("data-btntype") === "delete") {
-                StudentModule.deleteCourse(target.getAttribute("data-id"), function () {
-                    window.location.reload(true);
-                });
-                return;
-
-                // Detail - this is true if clicked anywhere within the row
-            } else if (target.nodeName.toLowerCase() === "tr") {
-                window.location.href = 'detail.html' + '?id=' + target.getAttribute("data-id");
-                return;
+                // Keep bubbling the event up through the DOM
+                target = target.parentNode;
             }
 
-            // Keep bubbling the event up through the DOM
-            target = target.parentNode;
-        }
-    });
-}
-
-
+            document.getElementById("tblcourse").classList.remove("hidden");
+            document.getElementById("loadingmsg").style.display = "none";
+        });
+    }
+    */
+    }
+};
 
 
 /*
